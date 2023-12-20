@@ -1,5 +1,16 @@
 .container{
-    display: grid;
+    display: flex;
+    flex-direction: column;
     padding: 20px;
     background-color: aliceblue;
+}
+.fields{
+    display: flex;
+    flex-direction: row;
+}
+.eachField{
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+    width: 300px;
 }

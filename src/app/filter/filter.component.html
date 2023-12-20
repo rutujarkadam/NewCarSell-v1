@@ -1,97 +1,124 @@
-<p>Apply filters</p>
-<mat-card class="container">
+<mat-card class="container" *ngIf="carsData">
     <form [formGroup]="filterCriteria">
-        <div>
+        <div class="fields">
+            <div class="eachField">
             <h2>Brand</h2>
-        <mat-form-field>
-            <mat-select formControlName="brand">
-                <mat-option *ngFor="let item of carsData" [value]="item.brand">
-                {{item.brand}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <h2>Model</h2>
-        <mat-form-field>
-            <mat-select formControlName="model">
-                <mat-option *ngFor="let item of carsData" [value]="item.model">
-                {{item.model}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <h2>Year</h2>
-        <mat-form-field>
-            <mat-select formControlName="year">
-                <mat-option *ngFor="let item of carsData" [value]="item.makeYear">
-                {{item.makeYear}}</mat-option>
-            </mat-select>
-        </mat-form-field>
+            <mat-form-field>
+                <mat-select formControlName="brand" (selectionChange)="onBrandSelect()">
+                    <mat-option *ngFor="let item of carsData[0].brandList" [value]="item.brand">
+                    {{item.brand}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            </div>
+            <div class="eachField">
+            <h2>Model</h2>
+            <mat-form-field>
+                <mat-select formControlName="model">
+                    <mat-option *ngFor="let item of modelOptions" [value]="item">
+                    {{item}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            </div>
+            <div class="eachField">
+            <h2>Year</h2>
+            <mat-form-field>
+                <mat-select formControlName="makeYear">
+                    <mat-option *ngFor="let item of carsData[0].makeYear" [value]="item">
+                    {{item}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            </div>
         </div>
-        <div>
+        <div class="fields">
+            <div class="eachField">
             <h2>Variant</h2>
-        <mat-form-field>
-            <mat-select formControlName="variant">
-                <mat-option *ngFor="let item of carsData" [value]="item.variant">
-                {{item.variant}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <h2>Transmission</h2>
-        <mat-form-field>
-            <mat-select formControlName="transmission">
-                <mat-option *ngFor="let item of carsData" [value]="item.transmission">
-                {{item.transmission}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <h2>Features</h2>
-        <mat-form-field>
-            <mat-select formControlName="features">
-                <mat-option *ngFor="let item of carsData" [value]="item.features">
-                {{item.features}}</mat-option>
-            </mat-select>
-        </mat-form-field>
+            <mat-form-field>
+                <mat-select formControlName="variant">
+                    <mat-option *ngFor="let item of carsData[0].variants" [value]="item">
+                    {{item}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            </div>
+            <div class="eachField">
+            <h2>Transmission</h2>
+            <mat-form-field>
+                <mat-select formControlName="transmission">
+                    <mat-option *ngFor="let item of carsData[0].transmissions" [value]="item">
+                    {{item}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            </div>
+            <div class="eachField">
+            <h2>Features</h2>
+            <mat-form-field>
+                <mat-select formControlName="features">
+                    <mat-option *ngFor="let item of carsData[0].features" [value]="item">
+                    {{item}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            </div>
         </div>
-        <div>
+        <div class="fields">
+            <div class="eachField">
             <h2>Seats</h2>
-        <mat-form-field>
-            <mat-select formControlName="seats">
-                <mat-option *ngFor="let item of carsData" [value]="item.seats">
-                {{item.seats}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <h2>Owner</h2>
-        <mat-form-field>
-            <mat-select formControlName="owner">
-                <mat-option *ngFor="let item of carsData" [value]="item.owner">
-                {{item.owner}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <h2>State</h2>
-        <mat-form-field>
-            <mat-select formControlName="state">
-                <mat-option *ngFor="let item of carsData" [value]="item.state">
-                {{item.state}}</mat-option>
-            </mat-select>
-        </mat-form-field>
+            <mat-form-field>
+                <mat-select formControlName="seats">
+                    <mat-option *ngFor="let item of carsData[0].seats" [value]="item">
+                    {{item}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            </div>
+            <div class="eachField">
+            <h2>Owner</h2>
+            <mat-form-field>
+                <mat-select formControlName="owner">
+                    <mat-option *ngFor="let item of carsData[0].owners" [value]="item">
+                    {{item}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            </div>
+            <div class="eachField">
+            <h2>State</h2>
+            <mat-form-field>
+                <mat-select formControlName="state">
+                    <mat-option *ngFor="let item of carsData[0].states" [value]="item.state">
+                    {{item.state}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            </div>
         </div>
-        <div>
+        <div class="fields">
+            <div class="eachField">
             <h2>KMDriven</h2>
-        <mat-form-field>
-            <mat-select formControlName="kmDriven">
-                <mat-option *ngFor="let item of carsData" [value]="item.kmDriven">
-                {{item.kmDriven}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <h2>Body Type</h2>
-        <mat-form-field>
-            <mat-select formControlName="bodyType">
-                <mat-option *ngFor="let item of carsData" [value]="item.bodyType">
-                {{item.bodyType}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <h2>color</h2>
-        <mat-form-field>
-            <mat-select formControlName="color">
-                <mat-option *ngFor="let item of carsData" [value]="item.color">
-                {{item.color}}</mat-option>
-            </mat-select>
-        </mat-form-field>
+            <mat-form-field>
+                <mat-select formControlName="kmDriven">
+                    <mat-option *ngFor="let item of carsData[0].kmDriven" [value]="item">
+                    {{item}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            </div>
+            <div class="eachField">
+            <h2>Body Type</h2>
+            <mat-form-field>
+                <mat-select formControlName="bodyType">
+                    <mat-option *ngFor="let item of carsData[0].bodyTypes" [value]="item">
+                    {{item}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            </div>
+            <div class="eachField">
+            <h2>color</h2>
+            <mat-form-field>
+                <mat-select formControlName="color">
+                    <mat-option *ngFor="let item of carsData[0].colors" [value]="item">
+                    {{item}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            </div>
+        </div>
+        <div class="fields">
+            <button mat-raised-button color="primary" (click)="apply()"
+            >Apply</button>
         </div>
         
     </form>

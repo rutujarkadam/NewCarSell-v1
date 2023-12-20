@@ -6,6 +6,8 @@
     <button mat-raised-button color="primary" (click)="sort()"
     ><mat-icon>sort</mat-icon>
     Sort</button>
+    <button mat-raised-button color="warn" (click)="reset()"
+    >Reset</button>
     <mat-form-field >
             <input matInput type="text" class="search" [(ngModel)]="search">
     </mat-form-field>
@@ -27,5 +29,14 @@
         <h1><b>₹ {{car.price}}</b></h1>
         <h4>{{car.color}} • {{car.seats}} • {{car.owner}}</h4>
         <h4>{{car.owner}} - {{car.stateCode}}</h4>
+        <b>
+            <i
+            style="font-size: x-large; margin-left: 10px;"
+            class="fa fa-heart"
+            aria-hidden="true"
+            [ngClass]="car.wishListed ? 'fa-regular' : 'fa-solid'"
+            (click)="addToWishlist(car)"
+            ></i>
+        </b>
     </mat-card>
 </div>

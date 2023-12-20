@@ -1,0 +1,26 @@
+.upperContainer{
+    display: inline-block;
+    width: 100%;
+}
+.search{
+    width: 200px;
+    height: 10px;
+
+}
+.carDisplay{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+.card{
+    border-radius: 10%;
+    background-color: lightgray;
+    padding: 20px;
+}
+.features{
+    border-radius: 10px;
+    background-color: azure;
+    width: fit-content;
+    padding: 5px;
+}

@@ -1,0 +1,18 @@
+<mat-card>
+    <form [formGroup]="applyCoupon">
+        <h3>Enter coupon code</h3>
+    <mat-form-field>
+        <mat-label>Coupon code</mat-label>
+        <input matInput type="text" formControlName="couponCode"
+        #couponCode
+        (input)="couponCode.value = couponCode.value.toUpperCase()">
+    </mat-form-field>
+    <h3>Discount available</h3>
+    <mat-form-field>
+        <mat-label>%</mat-label>
+        <input matInput readonly="true" formControlName="discount">
+    </mat-form-field>
+    <button mat-raised-button (click)="apply()"
+    >Apply</button>
+    </form>
+</mat-card>

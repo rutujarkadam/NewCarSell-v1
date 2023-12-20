@@ -1,0 +1,34 @@
+.container{
+    width: 900px;
+    margin: auto;
+    padding: 10px;
+    background-color: #1976d2;
+    height: 520px;
+}
+h1{
+    color: white;
+}
+mat-stepper{
+    background: #c8ccdd;
+}
+.innerCard{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+}
+.innerDiv{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    text-align: center;
+}
+button{
+    width: 100px;
+    margin: auto;
+}

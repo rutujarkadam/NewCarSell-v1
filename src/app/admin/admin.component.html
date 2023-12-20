@@ -1,0 +1,205 @@
+<div>
+    <button mat-raised-button color="primary" (click)="createCoupon()"
+    >Create Coupon
+    </button>
+    <button mat-raised-button color="warn" (click)="logOut()"
+    >Log Out</button>
+    <button mat-raised-button color="primary" (click)="redeemCoupon()"
+    >Redeem Coupon</button>
+</div>
+<mat-card class="container" *ngIf="allCarOptions">
+    <h1><b>Enter your car details</b></h1>
+    <mat-stepper >
+        <form [formGroup]="addCar">
+            <mat-step>
+                <mat-card class="innerCard">
+                    <div class="row">
+                        <div class="innerDiv">
+                            <h2>Select Your Car's Brand</h2>
+                            <mat-form-field>
+                                <mat-label>Brand</mat-label>
+                                <mat-select formControlName="brand"
+                                (selectionChange)="onBrandSelect()">
+                                    <mat-option 
+                                    *ngFor="let item of allCarOptions[0].brandList"
+                                    [value]="item.brand">{{item.brand}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="innerDiv">
+                            <h2>Select Your Car's Model</h2>
+                            <mat-form-field>
+                                <mat-label>Model</mat-label>
+                                <mat-select formControlName="model">
+                                    <mat-option *ngFor="let item of modelOptions"
+                                    [value]="item">{{item}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>    
+                    <div class="row">
+                        <div class="innerDiv">
+                            <h2>Year</h2>
+                            <mat-form-field>
+                                <mat-label>Year</mat-label>
+                                <mat-select formControlName="year">
+                                    <mat-option *ngFor="let item of allCarOptions[0].makeYear"
+                                    [value]="item">{{item}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="innerDiv">
+                            <h2>Variant</h2>
+                            <mat-form-field>
+                                <mat-label>Variant</mat-label>
+                                <mat-select formControlName="variant">
+                                    <mat-option *ngFor="let item of allCarOptions[0].variants"
+                                    [value]="item">{{item}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        </div>
+                        <button mat-button matStepperNext>Next</button>
+                </mat-card>
+            </mat-step>
+            <mat-step>
+                <mat-card class="innerCard">
+                    <div class="row">
+                        <div class="innerDiv">
+                            <h2>KMs driven</h2>
+                            <mat-form-field>
+                                <mat-label>KM</mat-label>
+                                <mat-select formControlName="kmDriven">
+                                    <mat-option *ngFor="let item of allCarOptions[0].kmDriven"
+                                    [value]="item">{{item}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="innerDiv">
+                            <h2>Features</h2>
+                            <mat-form-field>
+                                <mat-label>Features</mat-label>
+                                <mat-select multiple="true" formControlName="features">
+                                    <mat-option *ngFor="let item of allCarOptions[0].features"
+                                    [value]="item">{{item}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>   
+                    </div>                    
+                    <div class="row">
+                       <div class="innerDiv">
+                            <h2>Transmission</h2>
+                            <mat-form-field>
+                                <mat-label>Transmission</mat-label>
+                                <mat-select formControlName="transmission">
+                                    <mat-option *ngFor="let item of allCarOptions[0].transmissions"
+                                    [value]="item">{{item}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                       </div>
+                        <div class="innerDiv">
+                            <h2>Owner</h2>
+                            <mat-form-field>
+                                <mat-label>Owner</mat-label>
+                                <mat-select formControlName="owner">
+                                    <mat-option *ngFor="let item of allCarOptions[0].owners"
+                                    [value]="item">{{item}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div> 
+                    </div>
+              
+                    <button mat-button matStepperNext>Next</button>
+                </mat-card>
+            </mat-step>
+            <mat-step>
+                <mat-card class="innerCard">
+                    <div class="row">
+                        <div class="innerDiv">
+                            <h2>Select your state</h2>
+                            <mat-form-field>
+                                <mat-label>State</mat-label>
+                                <mat-select
+                                formControlName="state"
+                                (selectionChange)="onStateSelect()">
+                                    <mat-option *ngFor="let item of allCarOptions[0].states"
+                                    [value]="item.state">{{item.state}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="innerDiv">
+                            <h2>Select state code</h2>
+                            <mat-form-field>
+                                <mat-label>State code</mat-label>
+                                <mat-select formControlName="stateCode">
+                                    <mat-option *ngFor="let item of stateCodeOptions"
+                                    [value]="item">{{item}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+               
+                    <div class="row">
+                        <div class="innerDiv">
+                            <h2>Enter your city</h2>
+                            <mat-form-field>
+                                <mat-label>City</mat-label>
+                                <input matInput type="text" formControlName="city">
+                            </mat-form-field> 
+                        </div>        
+                    </div>
+                    <button mat-button matStepperNext>Next</button>        
+                </mat-card>
+            </mat-step>
+            <mat-step>
+                <mat-card class="innerCard">
+                    <div class="row">
+                        <div class="innerDiv">
+                            <h2>Select Your Car's color</h2>
+                            <mat-form-field>
+                                <mat-label>color</mat-label>
+                                <mat-select formControlName="color">
+                                    <mat-option *ngFor="let item of allCarOptions[0].colors"
+                                    [value]="item">{{item}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>             
+                        <div class="innerDiv">
+                            <h2>Select Your Car's Body type</h2>
+                            <mat-form-field>
+                                <mat-label>Body type</mat-label>
+                                <mat-select formControlName="bodyType">
+                                    <mat-option *ngFor="let item of allCarOptions[0].bodyTypes"
+                                    [value]="item">{{item}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+               
+                    <div class="row">
+                         <div class="innerDiv">
+                            <h2>No. of seats</h2>
+                            <mat-form-field>
+                                <mat-label>Seats</mat-label>
+                                <mat-select formControlName="seats">
+                                    <mat-option *ngFor="let item of allCarOptions[0].seats"
+                                    [value]="item">{{item}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>             
+                        <div class="innerDiv">
+                            <h2>Enter Your Car's Buying Price</h2>
+                        <mat-form-field>
+                            <mat-label>Price</mat-label>
+                            <input matInput type="number" formControlName="price">
+                        </mat-form-field>
+                        </div>          
+                    </div>
+                    <button 
+                    mat-raised-button
+                    (click)="add()">Submit</button>  
+                </mat-card>
+            </mat-step>
+        </form>
+    </mat-stepper>
+</mat-card>

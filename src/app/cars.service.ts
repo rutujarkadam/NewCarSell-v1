@@ -6,7 +6,8 @@ import { VariableConstants } from './variable.constants';
   providedIn: 'root'
 })
 export class CarsService {
-
+  reset = false;
+  appliedFilters:any;
   constructor(private http : HttpClient) { }
   getCarsOptions(){
     const url = VariableConstants.optionsUrl;
@@ -39,5 +40,17 @@ export class CarsService {
   redeemCoupon(code:any){
     const url = VariableConstants.redeemCoupon;
     return this.http.post(url, code);
+  }
+  addToWishList(item:any){
+    const url = VariableConstants.addToWishList;
+    return this.http.post(url, item);
+  }
+  getAllWishList(){
+    const url = VariableConstants.getWishList;
+    return this.http.get(url);
+  }
+  deleteWishList(id:any){
+    const url = VariableConstants.deleteWishList + id;
+    return this.http.delete(url, id);
   }
 }

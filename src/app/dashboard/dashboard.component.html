@@ -1,0 +1,31 @@
+<mat-card class="upperContainer">
+    <button mat-raised-button color="accent" (click)="filter()"
+    ><mat-icon>filter_list</mat-icon>
+    Filter</button>
+
+    <button mat-raised-button color="primary" (click)="sort()"
+    ><mat-icon>sort</mat-icon>
+    Sort</button>
+    <mat-form-field >
+            <input matInput type="text" class="search" [(ngModel)]="search">
+    </mat-form-field>
+    <button mat-button (click)="searchCar()">
+        <mat-icon >search</mat-icon>
+    </button>
+
+    <button mat-raised-button color="warn"
+    >Log Out</button>
+</mat-card>
+<div *ngIf="allCars" class="carDisplay">
+    <mat-card *ngFor="let car of allCars" class="card">
+        <img src="../../assets/images/Cars/{{car.brand}}.jpeg"
+        width="310px" height="200px">
+        
+        <h2><b>{{car.makeYear}} {{car.brand}} {{car.model}}</b></h2>
+        <p>{{car.kmDriven}} • {{car.variant}} • {{car.transmission}}</p>
+        <p class="features">{{car.features}}</p>
+        <h1><b>₹ {{car.price}}</b></h1>
+        <h4>{{car.color}} • {{car.seats}} • {{car.owner}}</h4>
+        <h4>{{car.owner}} - {{car.stateCode}}</h4>
+    </mat-card>
+</div>

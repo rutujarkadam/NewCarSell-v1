@@ -20,6 +20,7 @@ constructor(private service : CarsService,
   private toastr : ToastrService){}
 ngOnInit(){
   this.getWishlist();
+  
   }
 
 filter(){
@@ -28,7 +29,8 @@ filter(){
     width : '700px'
   });
   dialogRef.afterClosed().subscribe((res:any) => {
-    console.log(res);
+    console.log('res from filter', res);
+    
     this.applyFilter(res);
   });
 }
@@ -165,5 +167,8 @@ getAllCars(wishList:any){
   }, error => {
     console.log('error', error)
   });
+}
+bookCar(item:any){
+  
 }
 }

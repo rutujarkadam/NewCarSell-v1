@@ -9,5 +9,7 @@ export class VariableConstants{
     public static redeemCoupon = 'http://localhost:3000/redemCouponCode';
     public static addToWishList = 'http://localhost:3000/addToWishList';
     public static getWishList = 'http://localhost:3000/getAllWishList';
-    public static deleteWishList = 'http://localhost:3000/deleteWishList/';
+    public static deleteWishList = 'http://localhost:3000/deleteWisBookedCard/';
+    public static bookACar = 'http://localhost:3000/bookACar';
+    public static gelAllBookCar = 'http://localhost:3000/getAllBookCar';
 }

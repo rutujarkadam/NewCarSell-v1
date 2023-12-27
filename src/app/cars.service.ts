@@ -50,7 +50,11 @@ export class CarsService {
     return this.http.get(url);
   }
   deleteWishList(id:any){
-    const url = VariableConstants.deleteWishList + id;
+    const url = VariableConstants.deleteWishList;
     return this.http.delete(url, id);
+  }
+  bookACar(item:any){
+    const url = VariableConstants.bookACar;
+    return this.http.post(url, item);
   }
 }

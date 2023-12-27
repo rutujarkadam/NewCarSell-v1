@@ -55,9 +55,15 @@ onBrandSelect(){
 }
 
 apply(){
-  this.service.appliedFilters = this.filterCriteria.value;
-  this.service.reset = false;
-  this.dialogRef.close(this.service.appliedFilters);
-
+    this.service.appliedFilters = this.filterCriteria.value;
+    this.service.reset = false;
+    this.dialogRef.close(this.filterCriteria.value);
+  
+  // console.log('service',this.service.appliedFilters);
+  // console.log(this.filterCriteria.value);
+}
+reset(){
+  this.filterCriteria.reset();
+  this.service.reset = true;
 }
 }
